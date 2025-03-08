@@ -1,16 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>How ROVs Help Turtles</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/white.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How ROVs Help Turtles - TEST</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/theme/white.css" id="theme">
     <style>
+        :root {
+            --base-font-size: 1.2em; /* Default for readability */
+        }
         .reveal h1 { font-size: 2em; }
         .reveal h2 { font-size: 1.5em; }
-        .reveal p { font-size: 1.2em; }
-        .reveal ul { font-size: 1.2em; }
-        .back-link { font-size: 1em; margin-top: 20px; }
+        .reveal p, .reveal ul { font-size: var(--base-font-size); line-height: 1.4; }
+        .reveal img { max-width: 50%; height: auto; }
+        .back-link { font-size: 1em; margin-top: 1em; }
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .reveal h1 { font-size: 1.5em; }
+            .reveal h2 { font-size: 1.2em; }
+            :root { --base-font-size: 1em; }
+            .reveal img { max-width: 70%; }
+        }
+        @media (max-width: 480px) {
+            .reveal h1 { font-size: 1.2em; }
+            .reveal h2 { font-size: 1em; }
+            :root { --base-font-size: 0.9em; }
+            .reveal img { max-width: 90%; }
+        }
     </style>
 </head>
 <body>
@@ -31,7 +48,7 @@
             <section>
                 <h2>Tracking Loggerhead Turtles with ROVs</h2>
                 <p><strong>What’s it about?</strong> Scientists used a robot submarine (ROV) to follow loggerhead turtles in the ocean!</p>
-                <img src="placeholder.jpg" alt="Placeholder for Loggerhead Turtle ROV Image" style="width: 50%;">
+                <img src="images/loggerhead-turtle-sketch.jpg" alt="Pencil sketch of a loggerhead turtle" style="width: 50%;">
                 <p><strong>How it helped:</strong></p>
                 <ul>
                     <li>Watched 70 turtles for 44.7 hours</li>
@@ -105,14 +122,22 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.js"></script>
     <script>
         Reveal.initialize({
-            width: 960,
-            height: 700,
-            margin: 0.1,
-            minScale: 0.2,
-            maxScale: 1.5
+            // Responsive dimensions
+            width: '100%',
+            height: '100%',
+            margin: 0.1, // Space around content
+            minScale: 0.2, // Minimum zoom out
+            maxScale: 2.0, // Maximum zoom in
+            // Navigation and usability
+            controls: true, // Show navigation arrows
+            progress: true, // Show progress bar
+            history: true, // Enable slide history in URL
+            center: true, // Center content vertically
+            transition: 'slide', // Default transition effect
+            // Optional: autoSlide: 10000, // Uncomment for 10s auto-slide
         });
     </script>
 </body>
