@@ -1,92 +1,151 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ROV Projects for Turtles</title>
+    
+    <!-- Include reveal.js CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
     
     <style>
         /* Base styles */
         body {
             font-family: Arial, sans-serif;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
-        .reveal h1 { font-size: 2em; }
-        .reveal h2 { font-size: 1.5em; }
-        .reveal p { font-size: 1.2em; }
-
-        /* Image styles */
-        .reveal img {
-            max-width: 100%;
-            height: auto;
-            margin: 20px 0;
+        /* Custom content styles */
+        .reveal-content {
+            background: white;
+            font-size: 1.8rem;
+            line-height: 2.16rem;
         }
 
-        /* Link style */
-        .back-link {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
+        .reveal-overflow {
+            position: relative;
+            margin: -20px auto;
         }
 
-        .back-link mobile { 
-            padding: 15px 25px;
-            font-size: 1.2em;
+        .my-custom-class {
+            /* Add your custom styles here */
+            padding: 20px !important;
+            background-color: #f0f0f;
         }
 
-        /* Responsive breakpoints */
+        /* Responsive design */
         @media screen and (max-width: 768px) {
-            .reveal h1 { font-size: 1.8em; }
-            .reveal h2 { font-size: 1.4em; }
-            .reveal p { font-size: 1.1em; }
-            
-            .reveal img { 
-                max-width: 90%;
-                margin: 15px auto;
+            body {
+                font-size: 1.2rem;
             }
-        }
-
-        @media screen and (max-width: 480px) {
-            .reveal h1 { font-size: 1.6em; }
-            .reveal h2 { font-size: 1.3em; }
-            .reveal p { font-size: 1.05em; }
             
-            .reveal img { 
-                max-width: 85%;
-                margin: 10px auto;
-            }
-
-            .back-link {
-                padding: 12px 20px;
-                font-size: 1.1em;
+            .reveal-content {
+                font-size: 1.4rem;
             }
         }
     </style>
 </head>
+
 <body>
-    <div class="reveal">
-        <div class="slides">
+    <!-- Main content -->
+    <div class="reveal-content">
+        <h1>ROV Projects for Turtles</h1>
+        
+        <!-- Your slides and content go here -->
+        <section>
+            <h2>Project Overview</h2>
+            <p>We will be deploying ROV (Remotely Operated Vehicles) to monitor marine turtles in the area.</p>
+            
+            <nav class="my-custom-class">
+                <ul>
+                    <li><a href="#turtles">Turtles</a></li>
+                    <li><a href="#technology">Technology</a></li>
+                    <li><a href="#data">Data</a></li>
+                    <li><a href="#deployment">Deployment</a></li>
+                </ul>
+            </nav>
+        </section>
 
-            <!-- Your slides content here -->
+        <!-- Add more sections and content -->
+        <section id="turtles">
+            <h2>Marine Turtles</h2>
+            <p>The project focuses on monitoring the population of sea turtles using advanced ROV technology.</p>
+            
+            <img src="https://example.com/turtle-image.jpg" alt="Turtle Image">
+        </section>
 
-        </div>
+        <!-- Add more sections and content -->
+        <section id="technology">
+            <h2>ROV Technology</h2>
+            <p>ROV systems utilize autonomous underwater vehicles to collect data in remote areas.</p>
+            
+            <div class="reveal-overflow">
+                <div style="position: absolute; top: 20%; left: 10%; width: 40%; height: 30%; border: 1px solid black;">
+                    <h3>Key Components</h3>
+                    <ul>
+                        <li>Autonomous Navigation Systems</li>
+                        <li>Environmental Sensors</li>
+                        <li>Real-time Data Transmission</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Add more sections and content -->
+        <section id="data">
+            <h2>Data Collection</h2>
+            <p>ROV vehicles collect data on marine life, water quality, and environmental factors.</p>
+            
+            <table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Unit</th>
+                    <th>Range</th>
+                </tr>
+                <tr>
+                    <td>Depth</td>
+                    <td>Meters</td>
+                    <td>0-1000</td>
+                </tr>
+                <tr>
+                    <td>Temperature</td>
+                    <td>Celsius</td>
+                    <td>10-30</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Add more sections and content -->
+        <section id="deployment">
+            <h2>Deployment Strategy</h2>
+            <p>The ROV vehicles will be deployed in key marine areas to gather data over a 6-month period.</p>
+            
+            <div class="reveal-overflow">
+                <div style="position: absolute; top: 30%; left: 20%; width: 40%; height: 35%; border: 1px solid black;">
+                    <h3>Key Deployment Areas</h3>
+                    <ul>
+                        <li>Gulf of Mexico</li>
+                        <li>Pacific Ocean</li>
+                        <li>Indian Ocean</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
     </div>
 
+    <!-- Include reveal.js JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
-    
+
     <script>
         Reveal.initialize({
             center: true,
             transition: 500ms,
             width: '100%',
             height: '100%',
+            useIncremental: false,
         });
     </script>
 </body>
