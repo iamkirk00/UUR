@@ -3,9 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
-    <title>How ROVs Help Turtles - TEST</title>
+    <title>Team Question: How has ROVs Help Turtles?</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/theme/simple.css" id="theme">
+    <!-- Add Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <style>
         :root {
             --base-font-size: 1.2rem; /* Relative units for scalability */
@@ -17,7 +19,7 @@
         .reveal h1 { font-size: 2.5rem; color: var(--primary-color); }
         .reveal h2 { font-size: 1.8rem; color: #4682b4; }
         .reveal p, .reveal ul { font-size: var(--base-font-size); line-height: 1.5; }
-        .reveal img { max-width: 50vw; max-height: 40vh; object-fit: contain; }
+        .reveal img, .reveal canvas { max-width: 50vw; max-height: 40vh; object-fit: contain; }
         .back-link { font-size: 1rem; margin-top: 1rem; }
         .back-link a { color: #ff4500; text-decoration: none; }
         .back-link a:hover { text-decoration: underline; }
@@ -26,13 +28,13 @@
             :root { --base-font-size: 1rem; }
             .reveal h1 { font-size: 2rem; }
             .reveal h2 { font-size: 1.5rem; }
-            .reveal img { max-width: 70vw; }
+            .reveal img, .reveal canvas { max-width: 70vw; }
         }
         @media (max-width: 480px) {
             :root { --base-font-size: 0.9rem; }
             .reveal h1 { font-size: 1.5rem; }
             .reveal h2 { font-size: 1.2rem; }
-            .reveal img { max-width: 90vw; }
+            .reveal img, .reveal canvas { max-width: 90vw; }
         }
     </style>
 </head>
@@ -41,8 +43,9 @@
         <div class="slides">
             <!-- Index Slide -->
             <section>
-                <h1>How ROVs Help Turtles</h1>
-                <p>Click a title to learn more!</p>
+                <h1>The Empire Removes Algae (TERA)</h1>
+                <img src="images/teampicture.jpg" alt="image of The Empire Removes Algae Team">
+                <p>How has ROVs Help Turtles? - Click a title to learn more!</p>
                 <ul>
                     <li><a href="#/1">Tracking Loggerhead Turtles</a></li>
                     <li><a href="#/3">Cleaning Up Turtle Homes</a></li>
@@ -55,17 +58,17 @@
                 <h2>Tracking Loggerhead Turtles with ROVs</h2>
                 <p><strong>What’s it about?</strong> Scientists used a robot submarine to follow loggerhead turtles!</p>
                 <img src="images/loggerhead-turtle-sketch.jpg" alt="Pencil sketch of a loggerhead turtle">
-                <p><strong>How it helped:</strong></p>
+                <p><strong>What it observed:</strong></p>
                 <ul>
                     <li>Watched 70 turtles for 44.7 hours</li>
-                    <li>Saw them eat in cold water (7.1°C)</li>
+                    <li>Saw them eat in cold water (44.8°F)</li>
                     <li>Made fishing safer for turtles</li>
                 </ul>
                 <p class="back-link"><a href="KXJ9P2M7.html">Back to Home</a></p>
             </section>
             <section>
                 <h2>Loggerhead Results</h2>
-                <img src="placeholder.jpg" alt="Placeholder for Loggerhead Data Chart">
+                <canvas id="loggerheadChart" style="max-width: 50vw; max-height: 40vh;"></canvas>
                 <p><strong>What we found:</strong> 63% of dives were for food!</p>
                 <p><strong>Big Win:</strong> 40% fewer turtles caught in nets by 2018!</p>
                 <p class="back-link"><a href="KXJ9P2M7.html">Back to Home</a></p>
@@ -75,7 +78,7 @@
             <section>
                 <h2>Cleaning Turtle Homes with a Robot</h2>
                 <p><strong>What’s it about?</strong> A robot boat cleans trash so turtles don’t eat it!</p>
-                <img src="placeholder.jpg" alt="Placeholder for Interceptor Robot Image">
+                <img src="images/roberrobot.jpg" alt="Interceptor Robot Image">
                 <p><strong>How it helped:</strong></p>
                 <ul>
                     <li>Removed 30 million pounds of trash</li>
@@ -131,17 +134,65 @@
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.js"></script>
     <script>
         Reveal.initialize({
-            width: "100%", // Full viewport width
-            height: "100%", // Full viewport height
-            margin: 0.05, // Reduced margin for more content space
-            minScale: 0.2, // Zoom out for small screens
-            maxScale: 2.0, // Zoom in for large screens
-            controls: true, // Navigation arrows
-            progress: true, // Progress bar
-            history: true, // URL updates with slides
-            center: true, // Vertically center content
-            transition: 'slide', // Smooth slide effect
-            embedded: false // Ensures full-screen behavior
+            width: "100%",
+            height: "100%",
+            margin: 0.05,
+            minScale: 0.2,
+            maxScale: 2.0,
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+            transition: 'slide',
+            embedded: false
+        });
+
+        // Chart.js for Loggerhead Results
+        Reveal.addEventListener('ready', function() {
+            const ctx = document.getElementById('loggerheadChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Turtle Dives'],
+                    datasets: [
+                        {
+                            label: 'Pelagic (Open Water)',
+                            data: [27],
+                            backgroundColor: '#4682b4', // Steel blue
+                            stack: 'foraging'
+                        },
+                        {
+                            label: 'Benthic (Ocean Floor)',
+                            data: [36],
+                            backgroundColor: '#2e8b57', // Sea green
+                            stack: 'foraging'
+                        },
+                        {
+                            label: 'Non-Foraging',
+                            data: [37],
+                            backgroundColor: '#d3d3d3', // Light gray
+                            stack: 'total'
+                        }
+                    ]
+                },
+                options: {
+                    indexAxis: 'y', // Horizontal bar for stacking clarity
+                    scales: {
+                        x: {
+                            stacked: true,
+                            max: 100,
+                            title: { display: true, text: 'Percentage (%)' }
+                        },
+                        y: { stacked: true }
+                    },
+                    plugins: {
+                        legend: { position: 'top' },
+                        title: { display: true, text: 'Foraging Behavior (63% Total)' }
+                    },
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
         });
     </script>
 </body>
