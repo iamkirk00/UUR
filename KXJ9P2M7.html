@@ -67,15 +67,15 @@
                 <p class="back-link"><a href="KXJ9P2M7.html">Back to Home</a></p>
             </section>
             <section>
-    			<h2>Loggerhead Results</h2>
-    			<div style="display: flex; justify-content: center;">
-        			<canvas id="loggerheadChart" style="max-width: 50vw; max-height: 40vh;"></canvas>
-    			</div>
-    			<p><strong>What we found:</strong> 63% of dives were for food!</p>
-    			<p><strong>Big Win:</strong> 40% fewer turtles caught in nets by 2018!</p>
-    			<p class="back-link"><a href="KXJ9P2M7.html">Back to Home</a></p>
-			</section>
- 
+                <h2>Loggerhead Results</h2>
+                <div style="display: flex; justify-content: center;">
+                    <canvas id="loggerheadChart" style="max-width: 50vw; max-height: 40vh;"></canvas>
+                </div>
+                <p><strong>What we found:</strong> 63% of dives were for food!</p>
+                <p><strong>Big Win:</strong> 40% fewer turtles caught in nets by 2018!</p>
+                <p class="back-link"><a href="KXJ9P2M7.html">Back to Home</a></p>
+            </section>
+
             <!-- Topic 2: Mark Rober’s Robot -->
             <section>
                 <h2>Cleaning Turtle Homes with a Robot</h2>
@@ -92,8 +92,8 @@
             <section>
                 <h2>Cleanup Results</h2>
                 <div style="display: flex; justify-content: center;">
-		    <canvas id="interceptorChart" style="max-width: 50vw; max-height: 40vh;"></canvas>
-		<div>
+                    <canvas id="interceptorChart" style="max-width: 50vw; max-height: 40vh;"></canvas>
+                </div>
                 <p><strong>What we found:</strong> Interceptor Trash Collection by Location (March 2025)</p>
                 <p><strong>Big Win:</strong> Could save 1,500 turtles a year!</p>
                 <p class="back-link"><a href="KXJ9P2M7.html">Back to Home</a></p>
@@ -151,10 +151,11 @@
             embedded: false
         });
 
-        // Chart.js for Loggerhead Results
+        // Chart.js for both charts
         Reveal.addEventListener('ready', function() {
-            const ctx = document.getElementById('loggerheadChart').getContext('2d');
-            new Chart(ctx, {
+            // Loggerhead Chart (Bar)
+            const loggerheadCtx = document.getElementById('loggerheadChart').getContext('2d');
+            new Chart(loggerheadCtx, {
                 type: 'bar',
                 data: {
                     labels: ['Turtle Dives'],
@@ -198,77 +199,65 @@
                 }
             });
 
-
-  		//JavaScript to create the pie chart -->
-  	<script>
-    		Reveal.addEventListener('ready', function () {
-      		// Get the canvas context
-      		const ctx = document.getElementById('interceptorChart').getContext('2d');
-
-		// Create the pie chart
-      		new Chart(ctx, {
-        		type: 'pie', // Chart type
-        		data: {
-          		labels: [
-            			'Rio Las Vacas, Guatemala',
-            			'Ozama River, Dominican Republic',
-            			'Ballona Creek, USA',
-            			'Other Sites'
-          		],
-          		datasets: [{
-            		label: 'Trash Collected (tons)',
-            		data: [11000, 1750, 120, 2000], // Data in tons
-            		backgroundColor: [
-              			'rgba(54, 162, 235, 0.8)',  // Blue for Guatemala
-              			'rgba(75, 192, 192, 0.8)',  // Green for Dominican Republic
-              			'rgba(255, 205, 86, 0.8)',  // Yellow for USA
-              			'rgba(255, 99, 132, 0.8)'   // Red for Other Sites
-            		],
-            		borderColor: [
-              			'rgba(54, 162, 235, 1)',
-              			'rgba(75, 192, 192, 1)',
-              			'rgba(255, 205, 86, 1)',
-              			'rgba(255, 99, 132, 1)'
-            		],
-            		borderWidth: 1
-          		}]
-        		},
-        		options: {
-          		responsive: true, // Makes the chart responsive to slide size
-          		plugins: {
-            		legend: {
-              		position: 'top', // Legend at the top
-              		labels: {
-                	font: {
-                  	size: 14
-                	}
-              		}
-            		},
-            		title: {
-              		display: true,
-              		text: 'Trash Collected by Interceptor (tons)',
-              		font: {
-                	size: 18
-              		}
-            		},
-            		tooltip: {
-              		callbacks: {
-                	label: function (context) {
-                  	let label = context.label || '';
-                  	if (label) {
-                    	label += ': ';
-                  	}
-                  	label += context.raw + ' tons';
-                  	return label;
-                	}
-              		}
-            		}
-          	}
-        	}
-      	});
-    });
-  </script>
-</section>
+            // Interceptor Chart (Pie)
+            const interceptorCtx = document.getElementById('interceptorChart').getContext('2d');
+            new Chart(interceptorCtx, {
+                type: 'pie',
+                data: {
+                    labels: [
+                        'Rio Las Vacas, Guatemala',
+                        'Ozama River, Dominican Republic',
+                        'Ballona Creek, USA',
+                        'Other Sites'
+                    ],
+                    datasets: [{
+                        label: 'Trash Collected (tons)',
+                        data: [11000, 1750, 120, 2000], // Data in tons
+                        backgroundColor: [
+                            'rgba(54, 162, 235, 0.8)',  // Blue (distinct from #4682b4)
+                            'rgba(75, 192, 192, 0.8)',  // Teal (distinct from #2e8b57)
+                            'rgba(255, 205, 86, 0.8)',  // Yellow
+                            'rgba(255, 99, 132, 0.8)'   // Red
+                        ],
+                        borderColor: [
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(255, 205, 86, 1)',
+                            'rgba(255, 99, 132, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false, // Match Loggerhead formatting
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: { size: 14 } // Consistent with your prior request
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Trash Collected by Interceptor (tons), March 2025',
+                            font: { size: 18 } // Consistent with your prior request
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    label += context.raw + ' tons';
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
         });
     </script>
 </body>
