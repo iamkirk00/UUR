@@ -91,8 +91,10 @@
             </section>
             <section>
                 <h2>Cleanup Results</h2>
-                <img src="placeholder.jpg" alt="Placeholder for Interceptor Data Chart">
-                <p><strong>What we found:</strong> Over 1,000 tons of trash collected!</p>
+                <div style="display: flex; justify-content: center;">
+		    <canvas id="interceptorChart" style="max-width: 50vw; max-height: 40vh;"></canvas>
+		<div>
+                <p><strong>What we found:</strong> Interceptor Trash Collection by Location (March 2025)</p>
                 <p><strong>Big Win:</strong> Could save 1,500 turtles a year!</p>
                 <p class="back-link"><a href="KXJ9P2M7.html">Back to Home</a></p>
             </section>
@@ -161,19 +163,19 @@
                             label: 'Pelagic (Open Water)',
                             data: [27],
                             backgroundColor: '#4682b4', // Steel blue
-                            stack: 'foraging'
+                            stack: 'dives'
                         },
                         {
                             label: 'Benthic (Ocean Floor)',
                             data: [36],
                             backgroundColor: '#2e8b57', // Sea green
-                            stack: 'foraging'
+                            stack: 'dives'
                         },
                         {
                             label: 'Non-Foraging',
                             data: [37],
                             backgroundColor: '#d3d3d3', // Light gray
-                            stack: 'foraging'
+                            stack: 'dives'
                         }
                     ]
                 },
@@ -195,6 +197,78 @@
                     maintainAspectRatio: false
                 }
             });
+
+
+  		//JavaScript to create the pie chart -->
+  	<script>
+    		Reveal.addEventListener('ready', function () {
+      		// Get the canvas context
+      		const ctx = document.getElementById('interceptorChart').getContext('2d');
+
+		// Create the pie chart
+      		new Chart(ctx, {
+        		type: 'pie', // Chart type
+        		data: {
+          		labels: [
+            			'Rio Las Vacas, Guatemala',
+            			'Ozama River, Dominican Republic',
+            			'Ballona Creek, USA',
+            			'Other Sites'
+          		],
+          		datasets: [{
+            		label: 'Trash Collected (tons)',
+            		data: [11000, 1750, 120, 2000], // Data in tons
+            		backgroundColor: [
+              			'rgba(54, 162, 235, 0.8)',  // Blue for Guatemala
+              			'rgba(75, 192, 192, 0.8)',  // Green for Dominican Republic
+              			'rgba(255, 205, 86, 0.8)',  // Yellow for USA
+              			'rgba(255, 99, 132, 0.8)'   // Red for Other Sites
+            		],
+            		borderColor: [
+              			'rgba(54, 162, 235, 1)',
+              			'rgba(75, 192, 192, 1)',
+              			'rgba(255, 205, 86, 1)',
+              			'rgba(255, 99, 132, 1)'
+            		],
+            		borderWidth: 1
+          		}]
+        		},
+        		options: {
+          		responsive: true, // Makes the chart responsive to slide size
+          		plugins: {
+            		legend: {
+              		position: 'top', // Legend at the top
+              		labels: {
+                	font: {
+                  	size: 14
+                	}
+              		}
+            		},
+            		title: {
+              		display: true,
+              		text: 'Trash Collected by Interceptor (tons)',
+              		font: {
+                	size: 18
+              		}
+            		},
+            		tooltip: {
+              		callbacks: {
+                	label: function (context) {
+                  	let label = context.label || '';
+                  	if (label) {
+                    	label += ': ';
+                  	}
+                  	label += context.raw + ' tons';
+                  	return label;
+                	}
+              		}
+            		}
+          	}
+        	}
+      	});
+    });
+  </script>
+</section>
         });
     </script>
 </body>
