@@ -1,1 +1,146 @@
- 
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turtle Savers - Underwater Robot Project</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/white.css">
+    <style>
+        .reveal .slide img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .reveal .slide h1, .reveal .slide h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        .reveal .slide ul {
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+        .reveal .back-to-home {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            font-size: 1em;
+        }
+        @media (max-width: 768px) {
+            .reveal .slide h1, .reveal .slide h2 {
+                font-size: 1.5em;
+            }
+            .reveal .slide ul {
+                font-size: 1em;
+            }
+        }
+        @media (max-width: 480px) {
+            .reveal .slide h1, .reveal .slide h2 {
+                font-size: 1.2em;
+            }
+            .reveal .slide ul {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <!-- Slide 1: Intro/Index -->
+            <section>
+                <img src="images/turtle-savers-logo.jpg" alt="Turtle Savers Logo">
+                <h1>Turtle Savers</h1>
+                <img src="images/team-boys.jpg" alt="Team Boys Picture">
+                <p>Can we build an Underwater Robot?</p>
+                <ul>
+                    <li><a href="#/1">How We Built It</a></li>
+                    <li><a href="#/2">What We Built</a></li>
+                    <li><a href="#/3">What Did We Learn</a></li>
+                    <li><a href="#/4">We Had Fun By</a></li>
+                    <li><a href="#/5">Our Team</a></li>
+                </ul>
+            </section>
+
+            <!-- Slide 2: How We Built It -->
+            <section>
+                <img src="images/build-process.jpg" alt="Building Process">
+                <h2>How We Built It</h2>
+                <ul>
+                    <li><strong>Measured & Cut:</strong> The frame needed lots of cuts on the PVC pipe. We measured twice and cut once to avoid wrong lengths that could make the robot look funny and not work.</li>
+                    <li><strong>Drilled Holes:</strong> We drilled holes in the PVC and motor canisters, using spare wood to protect the table.</li>
+                    <li><strong>Soldering:</strong> We melted metal at 350 degrees onto the controller and wire terminals. A mistake could’ve caused severe burns.</li>
+                    <li><strong>Wax Sealed:</strong> We sealed motors with wax in canisters to waterproof them. A mistake here would stop the motor from moving.</li>
+                    <li><strong>Testing:</strong> We tested the robot with pool noodles and hooks. Without testing, the propeller could’ve come off, and it wouldn’t work.</li>
+                </ul>
+                <a href="#/0" class="back-to-home">Back to Home</a>
+            </section>
+
+            <!-- Slide 3: What We Built -->
+            <section>
+                <img src="images/robot-parts.jpg" alt="Robot Parts">
+                <h2>What We Built</h2>
+                <ul>
+                    <li><strong>Frame:</strong> Made of PVC pipes to hold everything together.</li>
+                    <li><strong>Motors:</strong> A case and base spin the propeller to move the frame.</li>
+                    <li><strong>Controller:</strong> A base with switches and wires to activate motors.</li>
+                    <li><strong>Wiring:</strong> Metal inside rubber or plastic moves power from controller to motor.</li>
+                    <li><strong>Hooks:</strong> Curved metal pieces pick up rings and carry them to the surface.</li>
+                    <li><strong>Cut Pool Noodles:</strong> Keep the rover buoyant so it doesn’t sink too fast.</li>
+                </ul>
+                <a href="#/0" class="back-to-home">Back to Home</a>
+            </section>
+
+            <!-- Slide 4: What Did We Learn -->
+            <section>
+                <img src="images/learning-moment.jpg" alt="Learning Moment">
+                <h2>What Did We Learn</h2>
+                <ul>
+                    <li><strong>Importance of a Fuse:</strong> A motor can pop a fuse if it’s not good enough. Fuses in houses and cars stop electricity when something goes wrong.</li>
+                    <li><strong>Being Careful:</strong> We measured PVC twice before cutting and were cautious with the hot soldering iron.</li>
+                    <li><strong>Electrical Currents:</strong> We learned positive (colored) and negative (black) sides of wires for electrical flow.</li>
+                </ul>
+                <a href="#/0" class="back-to-home">Back to Home</a>
+            </section>
+
+            <!-- Slide 5: We Had Fun By -->
+            <section>
+                <img src="images/fun-moment.jpg" alt="Fun Moment">
+                <h2>We Had Fun By</h2>
+                <ul>
+                    <li><strong>Driving:</strong> Driving the ROV was fun, especially retrieving trash from the pool bottom.</li>
+                    <li><strong>Building:</strong> Building was exciting because we learned how to make a robot!</li>
+                    <li><strong>Telling Others:</strong> It was cool to tell others, especially my brothers, about our robot.</li>
+                </ul>
+                <a href="#/0" class="back-to-home">Back to Home</a>
+            </section>
+
+            <!-- Slide 6: Our Team -->
+            <section>
+                <img src="images/team-photo.jpg" alt="Team Photo">
+                <h2>Our Team</h2>
+                <ul>
+                    <li>Boy 1: [Name]</li>
+                    <li>Boy 2: [Name]</li>
+                    <li>Boy 3: [Name]</li>
+                    <li>Boy 4: [Name]</li>
+                    <li>Coach: [Name]</li>
+                </ul>
+                <a href="#/0" class="back-to-home">Back to Home</a>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            width: "100%",
+            height: "100%",
+            margin: 0.1,
+            minScale: 0.2,
+            maxScale: 1.5
+        });
+    </script>
+</body>
+</html>
