@@ -102,15 +102,10 @@
 
             <!-- Topic 3: Cold-Stunning -->
             <section>
-                <h2>Saving Turtles from the Cold with ROVs</h2>
-                <p><strong>What’s it about?</strong> Robots checked turtles in icy water!</p>
-                <img src="placeholder.jpg" alt="Placeholder for Cold-Stunning ROV Image">
-                <p><strong>How it helped:</strong></p>
-                <ul>
-                    <li>Saw turtles in cold water (7.1°C)</li>
-                    <li>15% moved slow from the cold</li>
-                    <li>Helped rescuers find them</li>
-                </ul>
+                <h2>Cold Rescue Results</h2>
+                <canvas id="coldRescueChart" style="max-width: 50vw; max-height: 40vh;"></canvas>
+                <p><strong>What we found:</strong> Turtles get sleepy below 10°C!</p>
+                <p><strong>Big Win:</strong> Saved 4,900 turtles in Texas in 2021!</p>
                 <p class="back-link"><a href="KXJ9P2M7.html">Back to Home</a></p>
             </section>
             <section>
@@ -200,6 +195,29 @@
                 }
             });
 
+            // Cold Rescue Results Chart
+            const coldRescueCtx = document.getElementById('coldRescueChart').getContext('2d');
+            new Chart(coldRescueCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['2014', '2021'],
+                    datasets: [{
+                        label: 'Turtles Saved',
+                        data: [1200, 4900],
+                        backgroundColor: ['#4682b4', '#2e8b57']
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: { beginAtZero: true, title: { display: true, text: 'Number of Turtles' } },
+                        x: { title: { display: true, text: 'Year' } }
+                    },
+                    plugins: { legend: { display: false }, title: { display: true, text: 'Cold-Stunned Turtles Rescued' } },
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+            
             // Interceptor Chart (Pie)
             const interceptorCtx = document.getElementById('interceptorChart').getContext('2d');
             new Chart(interceptorCtx, {
