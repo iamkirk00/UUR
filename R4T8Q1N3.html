@@ -1,46 +1,38 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
     <title>Turtle Savers - Underwater Robot Project</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/white.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/theme/simple.css" id="theme">
     <style>
-        .reveal .slide img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 20px;
+        :root {
+            --base-font-size: 1.2rem; /* Relative units for scalability */
+            --primary-color: #2e8b57; /* Sea green for turtle theme */
         }
-        .reveal .slide h1, .reveal .slide h2 {
-            font-size: 2em;
-            margin-bottom: 15px;
+        .reveal {
+            font-family: Arial, sans-serif;
         }
-        .reveal .slide ul {
-            font-size: 1.2em;
-            line-height: 1.5;
-        }
-        .reveal .back-to-home {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            font-size: 1em;
-        }
+        .reveal h1 { font-size: 2.5rem; color: var(--primary-color); }
+        .reveal h2 { font-size: 1.8rem; color: #4682b4; }
+        .reveal p, .reveal ul { font-size: var(--base-font-size); line-height: 1.5; }
+        .reveal img { max-width: 50vw; max-height: 40vh; object-fit: contain; margin-bottom: 1rem; }
+        .back-to-home { font-size: 1rem; margin-top: 1rem; }
+        .back-to-home a { color: #ff4500; text-decoration: none; }
+        .back-to-home a:hover { text-decoration: underline; }
+        /* Responsive Adjustments */
         @media (max-width: 768px) {
-            .reveal .slide h1, .reveal .slide h2 {
-                font-size: 1.5em;
-            }
-            .reveal .slide ul {
-                font-size: 1em;
-            }
+            :root { --base-font-size: 1rem; }
+            .reveal h1 { font-size: 2rem; }
+            .reveal h2 { font-size: 1.5rem; }
+            .reveal img { max-width: 70vw; }
         }
         @media (max-width: 480px) {
-            .reveal .slide h1, .reveal .slide h2 {
-                font-size: 1.2em;
-            }
-            .reveal .slide ul {
-                font-size: 0.9em;
-            }
+            :root { --base-font-size: 0.9rem; }
+            .reveal h1 { font-size: 1.5rem; }
+            .reveal h2 { font-size: 1.2rem; }
+            .reveal img { max-width: 90vw; }
         }
     </style>
 </head>
@@ -72,7 +64,7 @@
                     <li><strong>Wax Sealed:</strong> We sealed motors with wax in canisters to waterproof them. A mistake here would stop the motor from moving.</li>
                     <li><strong>Testing:</strong> We tested the robot with pool noodles and hooks. Without testing, the propeller could’ve come off, and it wouldn’t work.</li>
                 </ul>
-                <a href="#/0" class="back-to-home">Back to Home</a>
+                <p class="back-to-home"><a href="R4T8Q1N3.html">Back to Home</a></p>
             </section>
 
             <!-- Slide 3: What We Built -->
@@ -87,7 +79,7 @@
                     <li><strong>Hooks:</strong> Curved metal pieces pick up rings and carry them to the surface.</li>
                     <li><strong>Cut Pool Noodles:</strong> Keep the rover buoyant so it doesn’t sink too fast.</li>
                 </ul>
-                <a href="#/0" class="back-to-home">Back to Home</a>
+                <p class="back-to-home"><a href="R4T8Q1N3.html">Back to Home</a></p>
             </section>
 
             <!-- Slide 4: What Did We Learn -->
@@ -99,7 +91,7 @@
                     <li><strong>Being Careful:</strong> We measured PVC twice before cutting and were cautious with the hot soldering iron.</li>
                     <li><strong>Electrical Currents:</strong> We learned positive (colored) and negative (black) sides of wires for electrical flow.</li>
                 </ul>
-                <a href="#/0" class="back-to-home">Back to Home</a>
+                <p class="back-to-home"><a href="R4T8Q1N3.html">Back to Home</a></p>
             </section>
 
             <!-- Slide 5: We Had Fun By -->
@@ -111,7 +103,7 @@
                     <li><strong>Building:</strong> Building was exciting because we learned how to make a robot!</li>
                     <li><strong>Telling Others:</strong> It was cool to tell others, especially my brothers, about our robot.</li>
                 </ul>
-                <a href="#/0" class="back-to-home">Back to Home</a>
+                <p class="back-to-home"><a href="R4T8Q1N3.html">Back to Home</a></p>
             </section>
 
             <!-- Slide 6: Our Team -->
@@ -125,20 +117,25 @@
                     <li>Boy 4: [Name]</li>
                     <li>Coach: [Name]</li>
                 </ul>
-                <a href="#/0" class="back-to-home">Back to Home</a>
+                <p class="back-to-home"><a href="R4T8Q1N3.html">Back to Home</a></p>
             </section>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.js"></script>
     <script>
         Reveal.initialize({
-            hash: true,
-            width: "100%",
-            height: "100%",
-            margin: 0.1,
-            minScale: 0.2,
-            maxScale: 1.5
+            width: "100%", // Full viewport width
+            height: "100%", // Full viewport height
+            margin: 0.05, // Reduced margin for more content space
+            minScale: 0.2, // Zoom out for small screens
+            maxScale: 2.0, // Zoom in for large screens
+            controls: true, // Navigation arrows
+            progress: true, // Progress bar
+            history: true, // URL updates with slides
+            center: true, // Vertically center content
+            transition: 'slide', // Smooth slide effect
+            hash: true // Enable slide hashing for navigation
         });
     </script>
 </body>
