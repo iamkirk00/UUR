@@ -6,12 +6,11 @@
     <title>Team Question: How has ROVs Help Turtles?</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/theme/simple.css" id="theme">
-    <!-- Add Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <style>
         :root {
-            --base-font-size: 1.2rem; /* Relative units for scalability */
-            --primary-color: #2e8b57; /* Sea green for turtle theme */
+            --base-font-size: 1.2rem;
+            --primary-color: #2e8b57;
         }
         .reveal {
             font-family: Arial, sans-serif;
@@ -20,10 +19,10 @@
         .reveal h2 { font-size: 1.8rem; color: #4682b4; }
         .reveal p, .reveal ul { font-size: var(--base-font-size); line-height: 1.5; }
         .reveal img, .reveal canvas { max-width: 50vw; max-height: 40vh; object-fit: contain; }
+        .reveal canvas { display: block; margin: 0 auto; } /* Added for centering all charts */
         .back-link { font-size: 1rem; margin-top: 1rem; }
         .back-link a { color: #ff4500; text-decoration: none; }
         .back-link a:hover { text-decoration: underline; }
-        /* Responsive Adjustments */
         @media (max-width: 768px) {
             :root { --base-font-size: 1rem; }
             .reveal h1 { font-size: 2rem; }
@@ -69,9 +68,7 @@
             </section>
             <section>
                 <h2>Loggerhead Results</h2>
-                <div style="display: flex; justify-content: center;">
-                    <canvas id="loggerheadChart" style="max-width: 50vw; max-height: 40vh;"></canvas>
-                </div>
+                <canvas id="loggerheadChart" style="max-width: 50vw; max-height: 40vh;"></canvas>
                 <p><strong>What we found:</strong> 63% of dives were for food!</p>
                 <p><strong>Big Win:</strong> 40% fewer turtles caught in nets by 2018!</p>
                 <p class="back-link"><a href="KXJ9P2M7.html">Back to Home</a></p>
@@ -92,9 +89,7 @@
             </section>
             <section>
                 <h2>Cleanup Results</h2>
-                <div style="display: flex; justify-content: center;">
-                    <canvas id="interceptorChart" style="max-width: 50vw; max-height: 40vh;"></canvas>
-                </div>
+                <canvas id="interceptorChart" style="max-width: 50vw; max-height: 40vh;"></canvas>
                 <p><strong>What we found:</strong> Interceptor Trash Collection by Location (March 2025)</p>
                 <p><strong>Big Win:</strong> Could save 1,500 turtles a year!</p>
                 <p class="back-link"><a href="KXJ9P2M7.html">Back to Home</a></p>
@@ -102,17 +97,22 @@
 
             <!-- Topic 3: Cold-Stunning -->
             <section>
-                <h2>Cold Rescue Results</h2>
-                <canvas id="coldRescueChart" style="max-width: 50vw; max-height: 40vh;"></canvas>
-                <p><strong>What we found:</strong> Turtles get sleepy below 10°C!</p>
-                <p><strong>Big Win:</strong> Saved 4,900 turtles in Texas in 2021!</p>
+                <h2>Saving Turtles from the Cold with ROVs</h2>
+                <p><strong>What’s it about?</strong> Robots checked turtles in icy water!</p>
+                <img src="images/cold-stunned-turtle-2021.jpg" alt="Cold-stunned turtle being rescued in Texas, 2021">
+                <p><strong>How it helped:</strong></p>
+                <ul>
+                    <li>Saw turtles in cold water (7.1°C)</li>
+                    <li>15% moved slow from the cold</li>
+                    <li>Helped rescuers find them</li>
+                </ul>
                 <p class="back-link"><a href="KXJ9P2M7.html">Back to Home</a></p>
             </section>
             <section>
                 <h2>Cold Rescue Results</h2>
-                <img src="placeholder.jpg" alt="Placeholder for Cold-Stunning Data Chart">
+                <canvas id="coldRescueChart" style="max-width: 50vw; max-height: 40vh;"></canvas>
                 <p><strong>What we found:</strong> Turtles get sleepy below 10°C!</p>
-                <p><strong>Big Win:</strong> Saved over 1,200 turtles in 2014!</p>
+                <p><strong>Big Win:</strong> Saved 4,900 turtles in Texas in 2021!</p>
                 <p class="back-link"><a href="KXJ9P2M7.html">Back to Home</a></p>
             </section>
 
@@ -147,166 +147,133 @@
             embedded: false
         });
 
-I’ve reviewed your updated Chart.js code, which now includes three charts: a stacked bar chart for "Loggerhead Results," a bar chart for "Cold Rescue Results," and a pie chart for "Cleanup Results" (Interceptor). You mentioned that the last chart (the pie chart for the Interceptor) is not centered like the other two. This misalignment likely stems from differences in how Reveal.js handles the layout of <canvas> elements combined with Chart.js’s rendering, especially since the pie chart has different dimensions or styling compared to the bar charts.
-
-Below, I’ll explain the issue, provide a fix to ensure the pie chart centers consistently with the others, and update your code accordingly. I’ll assume this script is part of your KXJ9P2M7.html file, and the corresponding slide (Cleanup Results) uses a <canvas id="interceptorChart">.
-
-Why the Pie Chart Isn’t Centered
-Reveal.js Centering: Reveal.js uses center: true in its initialization to vertically and horizontally center slide content. However, pie charts in Chart.js can sometimes render with inconsistent padding or aspect ratios compared to bar charts, especially if maintainAspectRatio behaves differently.
-CSS Styling: Your CSS applies max-width: 50vw; max-height: 40vh; to all <canvas> elements, but pie charts may not scale symmetrically like bar charts, causing them to appear off-center if not explicitly constrained or aligned.
-Chart Options: The pie chart lacks explicit layout adjustments (e.g., layout or elements options) that could enforce centering, unlike the bar charts which align naturally with their axes.
-Fix
-To center the pie chart:
-
-CSS Adjustment: Ensure the <canvas> element is explicitly centered using display: block and margin: 0 auto.
-Chart.js Options: Add layout settings to control padding and enforce consistent rendering.
-Consistency: Match the pie chart’s maintainAspectRatio and responsive behavior to the bar charts.
-I’ll update the script and suggest a CSS tweak to apply to all charts for uniformity.
-
-Updated Code with Centered Pie Chart
-Here’s your Chart.js script with the Interceptor pie chart fixed to center properly:
-
-javascript
-
-Collapse
-
-Wrap
-
-Copy
-// Chart.js for all three charts
-Reveal.addEventListener('ready', function() {
-    // Loggerhead Chart (Bar)
-    const loggerheadCtx = document.getElementById('loggerheadChart').getContext('2d');
-    new Chart(loggerheadCtx, {
-        type: 'bar',
-        data: {
-            labels: ['Turtle Dives'],
-            datasets: [
-                {
-                    label: 'Pelagic (Open Water)',
-                    data: [27],
-                    backgroundColor: '#4682b4', // Steel blue
-                    stack: 'dives'
+        // Chart.js for all three charts
+        Reveal.addEventListener('ready', function() {
+            // Loggerhead Chart (Bar)
+            const loggerheadCtx = document.getElementById('loggerheadChart').getContext('2d');
+            new Chart(loggerheadCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Turtle Dives'],
+                    datasets: [
+                        {
+                            label: 'Pelagic (Open Water)',
+                            data: [27],
+                            backgroundColor: '#4682b4',
+                            stack: 'dives'
+                        },
+                        {
+                            label: 'Benthic (Ocean Floor)',
+                            data: [36],
+                            backgroundColor: '#2e8b57',
+                            stack: 'dives'
+                        },
+                        {
+                            label: 'Non-Foraging',
+                            data: [37],
+                            backgroundColor: '#d3d3d3',
+                            stack: 'dives'
+                        }
+                    ]
                 },
-                {
-                    label: 'Benthic (Ocean Floor)',
-                    data: [36],
-                    backgroundColor: '#2e8b57', // Sea green
-                    stack: 'dives'
-                },
-                {
-                    label: 'Non-Foraging',
-                    data: [37],
-                    backgroundColor: '#d3d3d3', // Light gray
-                    stack: 'dives'
+                options: {
+                    indexAxis: 'y',
+                    scales: {
+                        x: {
+                            stacked: true,
+                            max: 100,
+                            title: { display: true, text: 'Percentage (%)' }
+                        },
+                        y: { stacked: true }
+                    },
+                    plugins: {
+                        legend: { position: 'top' },
+                        title: { display: true, text: 'Foraging Behavior (63% Total)' }
+                    },
+                    responsive: true,
+                    maintainAspectRatio: false
                 }
-            ]
-        },
-        options: {
-            indexAxis: 'y',
-            scales: {
-                x: {
-                    stacked: true,
-                    max: 100,
-                    title: { display: true, text: 'Percentage (%)' }
-                },
-                y: { stacked: true }
-            },
-            plugins: {
-                legend: { position: 'top' },
-                title: { display: true, text: 'Foraging Behavior (63% Total)' }
-            },
-            responsive: true,
-            maintainAspectRatio: false
-        }
-    });
+            });
 
-    // Cold Rescue Results Chart (Bar)
-    const coldRescueCtx = document.getElementById('coldRescueChart').getContext('2d');
-    new Chart(coldRescueCtx, {
-        type: 'bar',
-        data: {
-            labels: ['2014', '2021'],
-            datasets: [{
-                label: 'Turtles Saved',
-                data: [1200, 4900],
-                backgroundColor: ['#4682b4', '#2e8b57']
-            }]
-        },
-        options: {
-            scales: {
-                y: { beginAtZero: true, title: { display: true, text: 'Number of Turtles' } },
-                x: { title: { display: true, text: 'Year' } }
-            },
-            plugins: { legend: { display: false }, title: { display: true, text: 'Cold-Stunned Turtles Rescued' } },
-            responsive: true,
-            maintainAspectRatio: false
-        }
-    });
-
-    // Interceptor Chart (Pie)
-    const interceptorCtx = document.getElementById('interceptorChart').getContext('2d');
-    new Chart(interceptorCtx, {
-        type: 'pie',
-        data: {
-            labels: [
-                'Rio Las Vacas, Guatemala',
-                'Ozama River, Dominican Republic',
-                'Ballona Creek, USA',
-                'Other Sites'
-            ],
-            datasets: [{
-                label: 'Trash Collected (tons)',
-                data: [11000, 1750, 120, 2000], // Data in tons
-                backgroundColor: [
-                    'rgba(54, 162, 235, 0.8)',  // Blue
-                    'rgba(75, 192, 192, 0.8)',  // Teal
-                    'rgba(255, 205, 86, 0.8)',  // Yellow
-                    'rgba(255, 99, 132, 0.8)'   // Red
-                ],
-                borderColor: [
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(255, 205, 86, 1)',
-                    'rgba(255, 99, 132, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            layout: {
-                padding: 10 // Adds padding to ensure centering within canvas
-            },
-            plugins: {
-                legend: {
-                    position: 'top',
-                    labels: {
-                        font: { size: 14 }
-                    }
+            // Interceptor Chart (Pie)
+            const interceptorCtx = document.getElementById('interceptorChart').getContext('2d');
+            new Chart(interceptorCtx, {
+                type: 'pie',
+                data: {
+                    labels: [
+                        'Rio Las Vacas, Guatemala',
+                        'Ozama River, Dominican Republic',
+                        'Ballona Creek, USA',
+                        'Other Sites'
+                    ],
+                    datasets: [{
+                        label: 'Trash Collected (tons)',
+                        data: [11000, 1750, 120, 2000],
+                        backgroundColor: [
+                            'rgba(54, 162, 235, 0.8)',
+                            'rgba(75, 192, 192, 0.8)',
+                            'rgba(255, 205, 86, 0.8)',
+                            'rgba(255, 99, 132, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(255, 205, 86, 1)',
+                            'rgba(255, 99, 132, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
                 },
-                title: {
-                    display: true,
-                    text: 'Trash Collected by Interceptor (tons), March 2025',
-                    font: { size: 18 }
-                },
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            let label = context.label || '';
-                            if (label) {
-                                label += ': ';
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    layout: { padding: 10 },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: { font: { size: 14 } }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Trash Collected by Interceptor (tons), March 2025',
+                            font: { size: 18 }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) label += ': ';
+                                    label += context.raw + ' tons';
+                                    return label;
+                                }
                             }
-                            label += context.raw + ' tons';
-                            return label;
                         }
                     }
                 }
-            }
-        }
-    });
-});
+            });
+
+            // Cold Rescue Results Chart (Bar)
+            const coldRescueCtx = document.getElementById('coldRescueChart').getContext('2d');
+            new Chart(coldRescueCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['2014', '2021'],
+                    datasets: [{
+                        label: 'Turtles Saved',
+                        data: [1200, 4900],
+                        backgroundColor: ['#4682b4', '#2e8b57']
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: { beginAtZero: true, title: { display: true, text: 'Number of Turtles' } },
+                        x: { title: { display: true, text: 'Year' } }
+                    },
+                    plugins: { legend: { display: false }, title: { display: true, text: 'Cold-Stunned Turtles Rescued' } },
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
         });
     </script>
 </body>
