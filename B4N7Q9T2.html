@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
+    <title>Team Question: How has ROVs Help Turtles?</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <style>
+        :root {
+            --base-font-size: 1.2rem;
+            --primary-color: #2e8b57;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+        }
+        .swiper {
+            width: 100%;
+            height: 100vh;
+        }
+        .swiper-slide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            background: #fff;
+            box-sizing: border-box;
+        }
+        h1 { font-size: 2.5rem; color: var(--primary-color); margin: 0.5rem 0; }
+        h2 { font-size: 1.8rem; color: #4682b4; margin: 0.5rem 0; }
+        p, ul { font-size: var(--base-font-size); line-height: 1.5; margin: 0.5rem 0; }
+        img, canvas { max-width: 50vw; max-height: 40vh; object-fit: contain; }
+        canvas { display: block; margin: 0 auto; }
+        .back-link { font-size: 1rem; margin-top: 1rem; }
+        .back-link a { color: #ff4500; text-decoration: none; }
+        .back-link a:hover { text-decoration: underline; }
+        ul { list-style-position: inside; padding-left: 0; }
+        @media (max-width: 768px) {
+            :root { --base-font-size: 1rem; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+            img, canvas { max-width: 70vw; }
+        }
+        @media (max-width: 480px) {
+            :root { --base-font-size: 0.9rem; }
+            h1 { font-size: 1.5rem; }
+            h2 { font-size: 1.2rem; }
+            img, canvas { max-width: 90vw; }
+        }
+    </style>
+</head>
+<body>
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <h1><strong>The Empire Removes Algae (T.E.R.A.)</strong></h1>
+                <img src="images/IMG_2306.jpeg" alt="image of The Empire Removes Algae Team">
+                <p><strong>How has ROVs Help Turtles?</strong></p>
+                <p>-Swipe to learn more!</p>
+                <ul>
+                    <li><a href="#" onclick="swiper.slideTo(1)">Tracking Loggerhead Turtles</a></li>
+                    <li><a href="#" onclick="swiper.slideTo(3)">Cleaning Up Turtle Homes</a></li>
+                    <li><a href="#" onclick="swiper.slideTo(5)">Saving Turtles from the Cold</a></li>
+                </ul>
+            </div>
+
+            <div class="swiper-slide">
+                <h2>Tracking Loggerhead Turtles with ROVs</h2>
+                <p><strong>What’s it about?</strong> Scientists used a robot submarine to follow loggerhead turtles!</p>
+                <img src="images/loggerhead-turtle-sketch.jpg" alt="Pencil sketch of a loggerhead turtle">
+                <p><strong>What it observed:</strong></p>
+                <ul>
+                    <li>Watched 70 turtles for 44.7 hours</li>
+                    <li>Saw them eat in cold water (44.8°F)</li>
+                    <li>Made fishing safer for turtles</li>
+                </ul>
+                <p class="back-link"><a href="#" onclick="swiper.slideTo(0)">Back to Home</a></p>
+            </div>
+            <div class="swiper-slide">
+                <h2>Loggerhead Results</h2>
+                <canvas id="loggerheadChart" style="max-width: 50vw; max-height: 40vh;"></canvas>
+                <p><strong>What we found:</strong> 63% of dives were for food!</p>
+                <p><strong>Big Win:</strong> 40% fewer turtles caught in nets by 2018!</p>
+                <p class="back-link"><a href="#" onclick="swiper.slideTo(0)">Back to Home</a></p>
+            </div>
+
+            <div class="swiper-slide">
+                <h2>Cleaning Turtle Homes with a Robot</h2>
+                <p><strong>What’s it about?</strong> A robot boat cleans trash so turtles don’t eat it!</p>
+                <img src="images/IMG_0180.png" alt="Interceptor Robot Image">
+                <p><strong>How it helped:</strong></p>
+                <ul>
+                    <li>Removed 30 million pounds of trash</li>
+                    <li>Kept junk away from turtle homes</li>
+                    <li>Cleaned rivers like Rio Ozama (100 tons in 1 month)</li>
+                </ul>
+                <p class="back-link"><a href="#" onclick="swiper.slideTo(0)">Back to Home</a></p>
+            </div>
+            <div class="swiper-slide">
+                <h2>Cleanup Results</h2>
+                <canvas id="interceptorChart" style="max-width: 50vw; max-height: 40vh;"></canvas>
+                <p><strong>What we found:</strong> Interceptor Trash Collection by Location (March 2025)</p>
+                <p><strong>Big Win:</strong> Could save 1,500 turtles a year!</p>
+                <p class="back-link"><a href="#" onclick="swiper.slideTo(0)">Back to Home</a></p>
+            </div>
+
+            <div class="swiper-slide">
+                <h2>Saving Turtles from the Cold with ROVs</h2>
+                <p><strong>What’s it about?</strong> Robots checked turtles in icy water!</p>
+                <img src="images/cold-stunned-turtle-2021.jpg" alt="Cold-stunned turtle being rescued in Texas, 2021">
+                <p><strong>How it helped:</strong></p>
+                <ul>
+                    <li>Saw turtles in cold water (7.1°C)</li>
+                    <li>15% moved slow from the cold</li>
+                    <li>Helped rescuers find them</li>
+                </ul>
+                <p class="back-link"><a href="#" onclick="swiper.slideTo(0)">Back to Home</a></p>
+            </div>
+            <div class="swiper-slide">
+                <h2>Cold Rescue Results</h2>
+                <canvas id="coldRescueChart" style="max-width: 50vw; max-height: 40vh;"></canvas>
+                <p><strong>What we found:</strong> Turtles get sleepy below 10°C!</p>
+                <p><strong>Big Win:</strong> Saved 4,900 turtles in Texas in 2021!</p>
+                <p class="back-link"><a href="#" onclick="swiper.slideTo(0)">Back to Home</a></p>
+            </div>
+
+            <div class="swiper-slide">
+                <h1>How Have ROVs Helped Turtles?</h1>
+                <p><strong>Our Big Question:</strong> Robots make turtle lives better!</p>
+                <ul>
+                    <li><strong>Tracking:</strong> Kept turtles safe from nets</li>
+                    <li><strong>Cleaning:</strong> Took trash away</li>
+                    <li><strong>Rescuing:</strong> Saved turtles from cold</li>
+                </ul>
+                <p>Robots are turtle heroes!</p>
+                <p class="back-link"><a href="#" onclick="swiper.slideTo(0)">Back to Home</a></p>
+            </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        console.log('Script loaded, initializing Swiper.js');
+        const swiper = new Swiper('.swiper', {
+            direction: 'horizontal',
+            loop: false,
+            pagination: { el: '.swiper-pagination', clickable: true },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+            slidesPerView: 1,
+            spaceBetween: 0,
+            on: {
+                init: function () {
+                    console.log('Swiper initialized');
+                    initializeCharts();
+                },
+                slideChange: function () {
+                    console.log('Slide changed to: ', this.activeIndex);
+                }
+            }
+        });
+
+        function initializeCharts() {
+            try {
+                const loggerheadCanvas = document.getElementById('loggerheadChart');
+                if (!loggerheadCanvas) throw new Error('Loggerhead Chart canvas not found');
+                const loggerheadCtx = loggerheadCanvas.getContext('2d');
+                new Chart(loggerheadCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Turtle Dives'],
+                        datasets: [
+                            { label: 'Pelagic (Open Water)', data: [27], backgroundColor: '#4682b4', stack: 'dives' },
+                            { label: 'Benthic (Ocean Floor)', data: [36], backgroundColor: '#2e8b57', stack: 'dives' },
+                            { label: 'Non-Foraging', data: [37], backgroundColor: '#d3d3d3', stack: 'dives' }
+                        ]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        scales: { x: { stacked: true, max: 100, title: { display: true, text: 'Percentage (%)' } }, y: { stacked: true } },
+                        plugins: { legend: { position: 'top' }, title: { display: true, text: 'Foraging Behavior (63% Total)' } },
+                        responsive: true,
+                        maintainAspectRatio: false
+                    }
+                });
+                console.log('Loggerhead Chart initialized');
+            } catch (e) {
+                console.error('Error initializing Loggerhead Chart:', e);
+            }
+
+            try {
+                const interceptorCanvas = document.getElementById('interceptorChart');
+                if (!interceptorCanvas) throw new Error('Interceptor Chart canvas not found');
+                const interceptorCtx = interceptorCanvas.getContext('2d');
+                new Chart(interceptorCtx, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Rio Las Vacas, Guatemala', 'Ozama River, Dominican Republic', 'Ballona Creek, USA', 'Other Sites'],
+                        datasets: [{
+                            label: 'Trash Collected (tons)',
+                            data: [11000, 1750, 120, 2000],
+                            backgroundColor: ['rgba(54, 162, 235, 0.8)', 'rgba(75, 192, 192, 0.8)', 'rgba(255, 205, 86, 0.8)', 'rgba(255, 99, 132, 0.8)'],
+                            borderColor: ['rgba(54, 162, 235, 1)', 'rgba(75, 192, 192, 1)', 'rgba(255, 205, 86, 1)', 'rgba(255, 99, 132, 1)'],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        layout: { padding: 10 },
+                        plugins: {
+                            legend: { position: 'top', labels: { font: { size: 14 } } },
+                            title: { display: true, text: 'Trash Collected by Interceptor (tons), March 2025', font: { size: 18 } },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.label || '';
+                                        if (label) label += ': ';
+                                        label += context.raw + ' tons';
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+                console.log('Interceptor Chart initialized');
+            } catch (e) {
+                console.error('Error initializing Interceptor Chart:', e);
+            }
+
+            try {
+                const coldRescueCanvas = document.getElementById('coldRescueChart');
+                if (!coldRescueCanvas) throw new Error('Cold Rescue Chart canvas not found');
+                const coldRescueCtx = coldRescueCanvas.getContext('2d');
+                new Chart(coldRescueCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['2014', '2021'],
+                        datasets: [{
+                            label: 'Turtles Saved',
+                            data: [1200, 4900],
+                            backgroundColor: ['#4682b4', '#2e8b57']
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: { beginAtZero: true, title: { display: true, text: 'Number of Turtles' } },
+                            x: { title: { display: true, text: 'Year' } }
+                        },
+                        plugins: { legend: { display: false }, title: { display: true, text: 'Cold-Stunned Turtles Rescued' } },
+                        responsive: true,
+                        maintainAspectRatio: false
+                    }
+                });
+                console.log('Cold Rescue Chart initialized');
+            } catch (e) {
+                console.error('Error initializing Cold Rescue Chart:', e);
+            }
+        }
+    </script>
+</body>
+</html>
